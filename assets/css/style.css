@@ -1,0 +1,134 @@
+
+/*  Reset CSS */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-family: Verdana, Tahoma, sans-serif;
+}
+
+/* 
+1. Từ ngoài vào trong
+2. Từ trên xuống dưới
+3. Từ tổng quan đến chi tiết
+*/
+
+/* 
+1. Vị trí
+2. Kích thước
+3. Màu sắc
+4. Kiểu dáng
+ */
+
+
+#header {
+    height: 60px;
+    background-color: rgb(14, 13, 13);
+    /* text-align: center; */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+#nav{
+    display: inline-block;
+}
+
+#nav, .subnav{
+    /* Bo dau cham dau dong liet ke */
+    list-style-type: none;
+}
+
+#nav>li{
+    display: inline-block;
+}
+
+#nav li{
+    position: relative;
+}
+
+#nav>li>a{
+    color: white;
+    text-transform: uppercase;
+}
+
+#nav li a{
+    /* Bo gach chan */
+    text-decoration: none;
+    line-height: 60px;
+    /* Khoang cach cac chu 24px */
+    padding:0 24px ;
+    display:block;
+}
+
+#nav li:hover .subnav{
+    /* Ghi de len .subnav hien danh sach */
+    display: block;
+}
+
+#nav>li:hover>a,
+#nav .subnav li:hover a{
+    color: black;
+    background-color: #ccc;
+    
+}
+
+#nav .subnav{
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 160px;
+    background-color:white;
+    box-shadow: 0 0 10px black;
+}
+
+#nav .subnav a{
+    color: black;
+    padding: 0 12px;
+    line-height: 38px;
+}
+
+#header .search-btn{
+    float: right;
+    padding: 0 26px;
+}
+
+#header .search-btn:hover{
+    background-color: rgb(180, 43, 43);
+    /* Thay doi hinh dang tro chuot */
+    cursor: pointer;
+}
+
+#nav .fa-sort-down{
+    font-size: 16px;
+}
+
+#header .search-btn .fa-search{
+    font-size: 16px;
+    color: white;
+    line-height: 60px;
+}
+
+#slider {
+    /* Khong bam dinh len tren */
+    margin-top: 60px;
+    position: relative;
+    padding-top: 50%;
+    background: url('/assets/img/la.jpg') no-repeat top center / cover ;
+}
+
+
+#content {
+    
+}
+
+#footer {
+    background-color: yellow;
+}
+
+
