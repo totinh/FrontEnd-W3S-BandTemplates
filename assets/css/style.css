@@ -7,6 +7,7 @@
 }
 
 html{
+    scroll-behavior: smooth; /*hiệu ứng di chuyển di nhấn liên kết trong*/
     font-family: Verdana, Tahoma, sans-serif;
 }
 
@@ -38,6 +39,10 @@ html{
     margin-top: 16px !important;
 }
 
+.mt-32{
+    margin-top: 32px !important;
+}
+
 .full-right{
     float: right !important;
 }
@@ -51,6 +56,7 @@ html{
     margin-top: 15px;
     border: none;
     cursor: pointer;
+    text-align: center;
 }
 
 .btn:hover{
@@ -88,20 +94,7 @@ html{
     width: 33.33333%;
 }
 
-
-
 /* Main */
-#header {
-    height: 60px;
-    background-color: rgb(14, 13, 13);
-    /* text-align: center; */
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
-}
-
 #nav{
     display: inline-block;
 }
@@ -161,27 +154,58 @@ html{
     line-height: 38px;
 }
 
-#header .search-btn{
+#header {
+    position: fixed;
+    height: 60px;
+    /* text-align: center; */
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgb(14, 13, 13);
+    /* overflow: hidden; Giúp ẩn hiện menu */
+    z-index: 1;
+}
+
+/* Search and Mobile Button*/
+#header .search-btn,
+#header .mobile-menu-btn{
     float: right;
     padding: 0 26px;
 }
 
+#header .mobile-menu-btn{
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: none;
+}
+
 #header .search-btn:hover{
-    background-color: rgb(180, 43, 43);
-    /* Thay doi hinh dang tro chuot */
     cursor: pointer;
+    background-color: rgb(180, 43, 43);
+}
+
+#header .mobile-menu-btn:hover{
+    background-color: #ccc;
+}
+
+/* Thay đổi màu icon menu mobile khi hover vô */
+#header .mobile-menu-btn:hover .fa-bars{
+    color: #000;
+}
+
+#header .fa-search,
+#header .fa-bars{
+    font-size: 20px;
+    color: white;
+    line-height: 60px;
 }
 
 #nav .fa-sort-down{
     font-size: 16px;
 }
 
-#header .search-btn .fa-search{
-    font-size: 16px;
-    color: white;
-    line-height: 60px;
-}
-
+/* Slider */
 #slider {
     position: relative; /*Bỏ thuộc tính chữ làm tăng kích thước ảnh nền - b1*/
     margin-top: 60px; /* Khong bam dinh len tren */
@@ -209,9 +233,12 @@ html{
 /* Content Section */
 #content .content-section{
     width: 800px;
+    max-width: 100%; /*Reponsive*/
     padding: 64px 0 112px;
     margin-left: auto;
     margin-right: auto;
+    padding-left: 16px; /*Tạo khoảng cách 2 bên lề responsive*/
+    padding-right: 16px; /*Tạo khoảng cách 2 bên lề responsive*/
 }
 
 #content .section-heading{
@@ -290,7 +317,7 @@ html{
 
 /* Places */
 .place-list{
-    margin-top: 32px;
+    margin-top: 16px;
     /* margin-top: 48px; */
 }
 
@@ -357,15 +384,15 @@ html{
     width: 100%;
 }
 
-/* Footer section */
+/* Footer Section */
 .footer{
     padding: 64px 16px;
     text-align: center;
 }
 
-.footer .socials-list i{
+.footer .socials-list .fas{
     font-size: 24px;
-    color: #000;
+    color: rgba(0, 0, 0, 0.8);
     text-decoration: none;
     margin-bottom: 30px;
     margin-left:15px ;
@@ -490,5 +517,114 @@ html{
     }
 }
 
+/* PC */
+@media (min-width: 1024px){
+   
+}
 
+/* Tablet & Mobile Responsive */
+@media (max-width: 1023px){
+    #nav .subnav a{
+       padding: 5px 12px;
+    }
 
+    .btn{
+        padding: 15px 16px;
+    }
+
+    .contact-form,
+    .form-control{
+        padding: 15px;
+    }
+
+    .contact-info{
+        line-height: 2;
+    }
+
+    .socials-list{
+        font-size: 48px;
+    }
+
+    #footer .socials-list a{
+        margin: 0 8px;
+    }
+
+    #footer .copyright a{
+        padding: 12px 0;
+        display: inline-block;
+    }
+}
+
+/* Tablet */
+@media (min-width: 740px) and (max-width: 1023px){
+    .contact-info{
+        line-height: 2;
+    }
+
+}
+
+/* Mobile Responsive */
+@media (max-width: 740px){
+    .s-full-width,
+    .s-col-full{
+        width: 100% !important;
+    }
+    
+    .s-mt-8{
+        margin-top: 8px !important;
+    }
+    #header {
+        overflow: hidden;
+    }
+
+    #header .mobile-menu-btn{
+        display:block ;
+    }
+
+    /* Ẩn nút search trên mobile*/
+    #header .search-btn {
+        display: none;
+    }
+
+    #nav{
+        display: block;
+    }
+
+    #nav li a {
+        padding: 1px 24px;
+    }
+
+    #nav>li {
+        display: block;
+    }
+
+    #nav .subnav{
+        position: initial;
+        background: #333;
+    }
+
+    #nav .subnav a{
+        color: #fff;
+        padding: 5px 41px;
+    }
+
+    /* Bỏ kế thừa block của thẻ <li> Home  */
+    #nav>li:first-child{
+        display: inline-block;
+    }
+
+    /* Chỉnh member theo 1 hàng */
+    #content .member-item{
+        margin-top: 30px;
+        width: 100%;
+    }
+
+    #content .member-img{
+        width: 60%;
+    }
+
+    .contact-form{
+        margin-top: 32px;
+    }
+    
+}
